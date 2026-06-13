@@ -1,102 +1,55 @@
-import "./App.css";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { FaPython, FaDatabase, FaReact, FaGitAlt, FaExcel, FaChartLine } from 'react-icons/fa';
+import './App.css';
 
-function App() {
+const App = () => {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => { window.addEventListener('scroll', () => setScrolled(window.scrollY > 50)); }, []);
+
   return (
     <div>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <h2>Rara.</h2>
+      </nav>
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1>Rara</h1>
-            <h3>Informatics Student</h3>
-            <p>Data Analysis • AI • Tech Enthusiast</p>
+      <header className="hero">
+        <motion.div className="hero-content" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}>
+          <h1>Rara</h1>
+          <h3>Informatics Student</h3>
+          <p>Data Analysis • AI Enthusiast • Tech Learner</p>
+          <button className="btn" onClick={() => window.scrollTo({top: 800, behavior: 'smooth'})}>Explore More</button>
+        </motion.div>
+      </header>
 
-            <a href="#about" className="btn">
-              Explore More
-            </a>
+      <section id="about">
+        <div style={{display: 'flex', alignItems: 'center', gap: '50px'}}>
+          <div>
+            <h2>Tentang Saya</h2>
+            <p>Halo! Namaku Endira Putri Azzahra, mahasiswa Teknik Informatika semester 4...</p>
           </div>
-
-          <div className="hero-image">
-            <img src="/hero.jpeg" alt="Hero" />
-          </div>
+          <img src="/profile.jpeg" alt="Profile" style={{width: '300px', borderRadius: '20px'}} />
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="about">
-        <div className="about-text">
-          <h2>Tentang Saya</h2>
-
-          <p>
-            Halo! Namaku Endira Putri Azzahra, mahasiswa Teknik
-            Informatika semester 4 yang tertarik pada Data Analysis,
-            AI, dan pengolahan data.
-          </p>
-
-          <p>
-            Saya senang mempelajari teknologi baru dan
-            mengembangkan keterampilan di bidang informatika.
-          </p>
-        </div>
-
-        <div className="about-image">
-          <img src="/profile.jpeg" alt="Profile" />
+      <section id="skills">
+        <h2>Skills</h2>
+        <div className="grid">
+          {['Excel', 'Data Analysis', 'Python', 'SQL', 'React', 'Git'].map((skill, i) => (
+            <motion.div key={i} className="card" whileHover={{ scale: 1.05 }}>
+              <h3>{skill}</h3>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* BIODATA */}
-      <section className="biodata">
-        <h2>Biodata</h2>
-
-        <div className="card">
-          <p><strong>Nama:</strong> Endira Putri Azzahra</p>
-          <p><strong>NIM:</strong> ISI NIM KAMU</p>
-          <p><strong>Semester:</strong> 4</p>
-          <p><strong>Program Studi:</strong> Teknik Informatika</p>
-        </div>
+      <section id="contact" style={{textAlign: 'center', background: '#1a1a1a'}}>
+        <h2>Contact Me</h2>
+        <p>Email: matchamilky.stdy@gmail.com</p>
+        <a href="https://github.com/sunmesht" target="_blank" rel="noreferrer">GitHub Profile</a>
       </section>
-
-      {/* SKILLS */}
-      <section className="skills">
-        <h2>Keahlian</h2>
-
-        <div className="skill-grid">
-          <div className="skill">Microsoft Excel</div>
-          <div className="skill">Data Analysis</div>
-          <div className="skill">Python</div>
-          <div className="skill">SQL Dasar</div>
-          <div className="skill">React Dasar</div>
-          <div className="skill">Git & GitHub</div>
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section className="contact">
-        <h2>Kontak</h2>
-
-        <div className="card">
-          <p>Email:</p>
-          <a href="mailto:matchamilky.stdy@gmail.com">
-            matchamilky.stdy@gmail.com
-          </a>
-
-          <br />
-          <br />
-
-          <p>GitHub:</p>
-          <a
-            href="https://github.com/sunmesht"
-            target="_blank"
-            rel="noreferrer"
-          >
-            github.com/sunmesht
-          </a>
-        </div>
-      </section>
-
     </div>
   );
-}
+};
 
 export default App;
