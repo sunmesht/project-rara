@@ -1,5 +1,4 @@
-/* App.css */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
   --pink: #F8BBD0;
@@ -9,37 +8,48 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-body { background-color: var(--dark); color: var(--white); overflow-x: hidden; }
+body { background-color: var(--dark); color: var(--white); }
 
-/* Navbar */
+/* Navbar - Transparan total */
 .navbar {
-  position: fixed; top: 0; width: 100%; padding: 20px 50px;
-  display: flex; justify-content: space-between; transition: 0.4s; z-index: 1000;
+  position: fixed; top: 0; width: 100%; padding: 30px 80px;
+  display: flex; justify-content: space-between; z-index: 1000;
+  transition: 0.3s;
 }
-.navbar.scrolled { background: rgba(18, 18, 18, 0.9); backdrop-filter: blur(10px); }
+.navbar.scrolled { background: rgba(18, 18, 18, 0.95); }
+.navbar h2 { color: var(--pink); letter-spacing: 2px; }
 
 /* Hero Section */
 .hero {
   height: 100vh; display: flex; align-items: center; padding: 0 100px;
-  background: linear-gradient(90deg, rgba(18,18,18,1) 0%, rgba(18,18,18,0.6) 50%, rgba(0,0,0,0) 100%), 
-              url('./public/hero.jpeg') no-repeat center center/cover;
+  background: linear-gradient(90deg, #121212 20%, rgba(18,18,18,0.4) 60%, transparent 100%), 
+              url('/public/hero.jpeg') no-repeat center center/cover;
 }
-.hero-content h1 { font-size: 80px; color: var(--pink); }
-.hero-content p { font-size: 20px; margin: 10px 0; color: var(--peach); }
+.hero-content h1 { font-size: 85px; color: var(--white); } /* Putih agar bersih */
+.hero-content p { color: var(--peach); font-size: 22px; margin: 15px 0; }
 
-/* Section Styling */
-section { padding: 100px 50px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+/* SECTION & CARDS - Kunci Desain Minimalis */
+section { padding: 100px 80px; }
+h2 { color: var(--pink); font-size: 40px; margin-bottom: 40px; }
 
-/* Cards */
 .card {
-  background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s;
+  background: rgba(255, 255, 255, 0.02); /* Sangat tipis */
+  padding: 40px;
+  border: 1px solid rgba(248, 187, 208, 0.2); /* Border Pink Pastel */
+  border-radius: 0; /* Kotak tegas untuk kesan premium */
+  transition: 0.4s;
 }
-.card:hover { border-color: var(--peach); box-shadow: 0 0 20px rgba(255, 214, 165, 0.3); transform: translateY(-10px); }
 
-/* Buttons */
-.btn {
-  padding: 12px 30px; background: var(--pink); color: var(--dark);
-  border: none; border-radius: 50px; cursor: pointer; font-weight: 600;
+.card:hover {
+  border-color: var(--peach); /* Berubah ke Peach saat hover */
+  background: rgba(255, 214, 165, 0.05); /* Sedikit sentuhan peach */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+
+/* Tombol */
+.btn {
+  padding: 15px 40px; background: transparent; color: var(--pink);
+  border: 1px solid var(--pink); cursor: pointer;
+  transition: 0.4s;
+}
+.btn:hover { background: var(--pink); color: var(--dark); }
