@@ -22,7 +22,7 @@ body { background-color: var(--dark); color: var(--white); overflow-x: hidden; }
 .hero {
   height: 100vh; display: flex; align-items: center; padding: 0 100px;
   background: linear-gradient(90deg, rgba(18,18,18,1) 0%, rgba(18,18,18,0.6) 50%, rgba(0,0,0,0) 100%), 
-              url('/hero.jpeg') no-repeat center center/cover;
+              url('./public/hero.jpeg') no-repeat center center/cover;
 }
 .hero-content h1 { font-size: 80px; color: var(--pink); }
 .hero-content p { font-size: 20px; margin: 10px 0; color: var(--peach); }
